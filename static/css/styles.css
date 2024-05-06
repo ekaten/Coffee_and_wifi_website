@@ -1,0 +1,23 @@
+html {box-sizing: border-box;}
+
+.nav-link {
+
+}
+
+.btn{
+    background-color: white !important;
+    border-radius: 10px !important;
+    margin-top: 2rem !important;
+    padding: 10px !important;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table_custom {
+ --bs-table-bg: transparent !important;
+ }

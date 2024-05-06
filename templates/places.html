@@ -1,0 +1,57 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% if password_form %}
+
+              <form method="post" action="/places" novalidate>
+                {{ password_form.csrf_token }}
+                <div class="pb-5">
+                    <div class="col">
+                      <label class="form-label">{{ password_form.password.label }}</label>
+                      {% for error in password_form.password.errors %}
+                          <span style="color: red">{{ error }}</span>
+                      {% endfor %}
+                      {{ password_form.password() }}
+
+                      {{ password_form.submit() }}
+                    </div>
+                  <div class="col">
+
+                    </div>
+                </div>
+              </form>
+{% endif %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        {% if message %}
+        <h1>{{ message }}</h1>
+        {% endif %}
+
+
+
+        {% if form %}
+
+          {% include "edit_form.html" %}
+
+        {% elif table %}
+
+          {% include "table.html" %}
+
+        {% else %}
+
+          <a class="btn btn-light btn-lg" style="font-weight: bold; margin-top: 2rem;" href="{{ url_for('add_place')}}" role="button">Add a Place</a>
+
+        {% endif %}
+
+        {% if search %}
+        <a class="btn btn-light btn-lg" style="font-weight: bold; margin-top: 2rem;" href="{{ url_for('add_place')}}" role="button">Add a New Place</a>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+{% include "footer.html" %}

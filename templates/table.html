@@ -1,0 +1,49 @@
+      <table class="table table-dark opacity-75">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Sockets</th>
+            <th scope="col">Bathrooms</th>
+            <th scope="col">WiFi</th>
+            <th scope="col">Coffee Price</th>
+            <th scope="col"></th>
+              {% if delete %}
+            <th scope="col"></th>
+              {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for cafe in cafes %}
+            <tr>
+              <td>{{cafe.name}}</td>
+
+              <td>
+                <a href="{{cafe.map_url}}" target="_blank">
+                  <button type="button" class="" style="background: black;  border-radius: 10px !important; color: white; padding: 10px">Map</button>
+                </a>
+              </td>
+              {% if cafe.has_sockets == 1 %} <td>✅</td> {% else %} <td>❌</td> {% endif %}
+              {% if cafe.has_toilet == 1 %} <td>✅</td> {% else %} <td>❌</td> {% endif %}
+              {% if cafe.has_wifi == 1 %} <td>✅</td> {% else %} <td>❌</td> {% endif %}
+               <td>{{cafe.coffee_price}}</td>
+                <td>
+                <a href="{{url_for('edit', id=cafe.id)}}">
+                  <button type="button" class="" style="background: black;  border-radius: 10px !important; color: white; padding: 10px">Edit Info</button>
+                </a>
+              </td>
+                {% if delete %}
+                <td>
+                <a href="{{url_for('delete', id=cafe.id)}}">
+                  <button type="button" class="" style="background: black;  border-radius: 10px !important; color: white; padding: 10px">Delete</button>
+                </a>
+              </td>
+                {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+

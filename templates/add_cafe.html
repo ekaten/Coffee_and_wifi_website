@@ -1,0 +1,23 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+    <h1>{{message}}</h1>
+    <p class="lead">{{second_message}}</p>
+    <p class="lead">
+        {{ wtf.quick_form(form, novalidate=True) }}
+    </p>
+
+ {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+
+
+{% include "footer.html" %}

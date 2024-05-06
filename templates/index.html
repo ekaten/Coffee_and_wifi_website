@@ -1,0 +1,17 @@
+
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<div class="d-flex w-100 h-90 p-3 mx-auto flex-column" style="height: 60vh;">
+     <h1>Coffee and Wifi.</h1>
+    <p class="lead">Find a perfect cafe to remote-work from in your area.</p>
+    <p class="lead">
+        {{ wtf.quick_form(form, novalidate=True) }}
+<!--      <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Find Places</a>-->
+    </p>
+
+</div>
+
+
+
+{% include "footer.html" %}
